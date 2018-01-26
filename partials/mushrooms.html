@@ -2,10 +2,10 @@
     <h3>List of Mushrooms</h3>
     <input type="text" ng-model="mushroomName"><br>
     
-    <input type="radio" ng-model="mushroom.edible">Poisonous<br>
-    <input type="radio">Non-Poisonous<br>
+    <input type="radio"  ng-model="edible" ng-value="false">Poisonous<br>
+    <input type="radio"  ng-model="edible" ng-value="true">Non-Poisonous<br>
 
-    <ul ng-repeat="mushroom in mushroomList | filter: mushroomName">
+    <ul ng-repeat="mushroom in mushroomList | filter: mushroomName | filter: {edible: edible}">
         <li>{{ mushroom.name }}</li>
     </ul>
 </div>
