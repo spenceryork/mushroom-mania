@@ -6,7 +6,8 @@ angular.module("mushroomMania").factory("MushroomFactory", function($q, $http) {
            $http
            .get("https://angular-fecd8.firebaseio.com/mushrooms.json")
            .then( (mushrooms) => {
-               resolve(mushrooms);
+               let mushArr = Object.values(mushrooms.data);
+               resolve(mushArr);
            })
            .catch( (err) => {
                reject(err);
